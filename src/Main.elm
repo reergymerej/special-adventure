@@ -32,11 +32,11 @@ update msg model =
     model
 
 
-renderItem : String -> Html msg
-renderItem item =
-    li [] [ text item ]
+renderItem : Int -> String -> Html msg
+renderItem index item =
+    li [] [ text (String.fromInt index ++ ": " ++ item) ]
 
 
 view : Model -> Html msg
 view model =
-    ul [] (List.map renderItem model)
+    ul [] (List.indexedMap renderItem model)
