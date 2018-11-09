@@ -32,6 +32,11 @@ update msg model =
     model
 
 
+renderItem : String -> Html msg
+renderItem item =
+    li [] [ text item ]
+
+
 view : Model -> Html msg
 view model =
-    div [] [ text "hello" ]
+    ul [] (List.map renderItem model)
