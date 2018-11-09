@@ -32,11 +32,16 @@ update msg model =
     model
 
 
-renderItem : String -> Html msg
-renderItem item =
-    li [] [ text item ]
+renderItem : String -> String -> Html msg
+renderItem prefix item =
+    li [] [ text (prefix ++ item) ]
+
+
+getItemRenderer : String -> (String -> Html msg)
+getItemRenderer prefix =
+    renderItem prefix
 
 
 view : Model -> Html msg
 view model =
-    ul [] (List.map renderItem model)
+    ul [] (List.map (getItemRenderer "Gruffalo: ") model)
