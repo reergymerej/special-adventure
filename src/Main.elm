@@ -37,11 +37,6 @@ renderItem prefix item =
     li [] [ text (prefix ++ item) ]
 
 
-getItemRenderer : String -> (String -> Html msg)
-getItemRenderer prefix =
-    renderItem prefix
-
-
 view : Model -> Html msg
 view model =
-    ul [] (List.map (getItemRenderer "Gruffalo: ") model)
+    ul [] (List.map (renderItem "Gruffalo: ") model)
